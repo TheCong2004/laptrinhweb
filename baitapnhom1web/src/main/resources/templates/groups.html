@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách nhóm</title>
+</head>
+<body>
+<h1>Danh sách nhóm</h1>
+<table border="1">
+    <tr>
+        <th>Tên nhóm</th>
+        <th>Mô tả</th>
+        <th>ID SV</th>
+    </tr>
+    <tr th:each="group : ${groups}">
+        <td th:text="${group.name}"></td>
+        <td th:text="${group.description}"></td>
+        <td th:text="${group.memberCount}"></td>
+    </tr>
+</table>
+</body>
+</html>
