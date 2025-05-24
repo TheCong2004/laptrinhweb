@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm / Sửa Nhóm</title>
+</head>
+<body>
+<h1 th:text="${group.id == null} ? 'Thêm nhóm mới' : 'Sửa nhóm'"></h1>
+
+<!-- Form THÊM nhóm -->
+<form th:if="${group.id == null}" th:action="@{/groups/add}" method="post" th:object="${group}">
+    <label>Tên nhóm:</label><br>
+    <input type="text" th:field="*{name}" required/><br><br>
+
+    <label>tên sv:</label><br>
+    <textarea th:field="*{description}" required></textarea><br><br>
+
+    <label>id sv:</label><br>
+    <input type="number" th:field="*{memberCount}" min="0" required/><br><br>
+
+    <button type="submit">Lưu</button>
+    <a href="/groups">Hủy</a>
+</form>
+
+<!-- Form SỬA nhóm -->
+<form th:if="${group.id != null}" th:action="@{/groups/edit/{id}(id=${group.id})}" method="post" th:object="${group}">
+    <label>Tên nhóm:</label><br>
+    <input type="text" th:field="*{name}" required/><br><br>
+
+    <label>tên sv:</label><br>
+    <textarea th:field="*{description}" required></textarea><br><br>
+
+    <label>id sv:</label><br>
+    <input type="number" th:field="*{memberCount}" min="0" required/><br><br>
+
+    <button type="submit">Cập nhật</button>
+    <a href="/groups">Hủy</a>
+</form>
+
+</body>
+</html>

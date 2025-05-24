@@ -5,17 +5,29 @@
 </head>
 <body>
 <h1>Danh sách nhóm</h1>
+
+<a href="/groups/add">Thêm thành viên moi</a>
+
 <table border="1">
     <tr>
-        <th>Tên nhóm 9</th>
+        <th>Tên nhóm</th>
+        <th>tên thành viên</th>
+        <th>id sv</th>
+        <th>Hành động</th>
     </tr>
     <tr th:each="group : ${groups}">
         <td>
-            <a th:href="@{'/groups/' + ${group.id}}">
-                <button th:text="${group.description}"></button>
-            </a>
+            <a th:href="@{'/groups/' + ${group.id}}" th:text="${group.name}">Tên nhóm</a>
+        </td>
+        <td th:text="${group.description}">Mô tả</td>
+        <td th:text="${group.memberCount}">0</td>
+        <td>
+            <a th:href="@{'/groups/edit/' + ${group.id}}">Sửa</a> |
+            <a th:href="@{'/groups/delete/' + ${group.id}}"
+               onclick="return confirm('Bạn chắc chắn muốn xóa nhóm này?');">Xóa</a>
         </td>
     </tr>
 </table>
+
 </body>
 </html>
