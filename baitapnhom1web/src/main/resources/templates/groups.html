@@ -7,14 +7,14 @@
 <h1>Danh sách nhóm</h1>
 <table border="1">
     <tr>
-        <th>Tên nhóm</th>
-        <th>Mô tả</th>
-        <th>ID SV</th>
+        <th>Tên nhóm 9</th>
     </tr>
     <tr th:each="group : ${groups}">
-        <td th:text="${group.name}"></td>
-        <td th:text="${group.description}"></td>
-        <td th:text="${group.memberCount}"></td>
+        <td>
+            <a th:href="@{'/groups/' + ${group.id}}">
+                <button th:text="${group.description}"></button>
+            </a>
+        </td>
     </tr>
 </table>
 </body>

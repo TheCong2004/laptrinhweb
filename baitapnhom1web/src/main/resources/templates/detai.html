@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết nhóm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Chi tiết nhóm</h1>
+
+<p><strong>Tên nhóm:</strong> <span th:text="${group.name}">Tên nhóm</span></p>
+<p><strong>Họ & Tên:</strong> <span th:text="${group.description}">Mô tả nhóm</span></p>
+<p><strong>ID sinh viên:</strong> <span th:text="${group.memberCount}">0</span></p>
+
+</body>
+</html>
